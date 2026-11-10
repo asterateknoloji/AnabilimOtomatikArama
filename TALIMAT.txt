@@ -1,0 +1,35 @@
+ASTERISK extensions_custom.conf DÜZENLEME TALİMATI
+=====================================================
+
+1. SSH ile Asterisk sunucusuna bağlanın:
+   ssh root@192.168.181.16 -p 45555
+
+2. Dosyayı düzenleyin:
+   nano /etc/asterisk/extensions_custom.conf
+
+3. Dosyanın SONUNA gidin (CTRL+End veya sayfa sonuna scroll)
+
+4. Şu satırları BULUN ve SİLİN:
+
+; ============================================
+; Otomatik Arama - from-internal h extension
+; ============================================
+[from-internal-custom]
+exten => h,1,GotoIf($["${CALL_ID}" != ""]?agi,1)
+exten => h,n,Hangup()
+
+exten => agi,1,NoOp(=== Otomatik Arama Bitti - CALL_ID: ${CALL_ID} ===)
+exten => agi,n,AGI(update_call_end.php,${CALL_ID},noanswer)
+exten => agi,n,Hangup()
+; ============================================
+
+; (macro-hangupcall-custom ve from-internal-noxfer-custom kısımlarını da silin)
+
+5. Yerine fix_extensions_custom.txt içeriğini YAPıŞTIRIN
+
+6. Kaydet ve çık: CTRL+O, Enter, CTRL+X
+
+7. Asterisk reload:
+   asterisk -rx "dialplan reload"
+
+TAMAM!

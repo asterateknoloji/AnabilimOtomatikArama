@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Alert Test</title>
+</head>
+<body>
+    <h1>JavaScript Test</h1>
+    
+    <button onclick="alert('ONCLICK ÇALIŞTI!');" style="padding: 20px; font-size: 18px; margin: 20px;">
+        TEST 1: ONCLICK
+    </button>
+    
+    <button id="testBtn2" style="padding: 20px; font-size: 18px; margin: 20px;">
+        TEST 2: EVENT LISTENER
+    </button>
+    
+    <div id="result" style="margin: 20px; padding: 20px; background: yellow; font-size: 20px; font-weight: bold;">
+        SONUÇ BURADA GÖRÜNECEK
+    </div>
+    
+    <script>
+        alert('1. SAYFA YÜKLENDİ - JavaScript ÇALIŞIYOR!');
+        
+        document.getElementById('testBtn2').addEventListener('click', function() {
+            alert('2. EVENT LISTENER ÇALIŞTI!');
+            document.getElementById('result').innerHTML = '✅ EVENT LISTENER BAŞARILI!';
+            document.getElementById('result').style.background = 'green';
+            document.getElementById('result').style.color = 'white';
+        });
+        
+        alert('3. EVENT LISTENER EKLENDİ!');
+    </script>
+</body>
+</html>

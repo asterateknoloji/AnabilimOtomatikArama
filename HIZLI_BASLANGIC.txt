@@ -1,0 +1,113 @@
+═══════════════════════════════════════════════════════════════
+    📍 OTOMATIK ARAMA SİSTEMİ - YENİ ERİŞİM URL'Sİ
+═══════════════════════════════════════════════════════════════
+
+✅ YENİ URL (Bunu kullanın):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+http://192.168.181.139:8009/OtomatikArama/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ ESKİ URL (Artık kullanmayın):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+http://localhost:8009/OtomatikArama/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🎯 HEMEN YAPMANIZ GEREKENLER:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ BU URL'İ KOPYALAYIN:
+   http://192.168.181.139:8009/OtomatikArama/login.php
+
+2️⃣ TARAYICINIZA YAPIŞTIRIN VE AÇIN
+
+3️⃣ LOGIN YAPIN:
+   Kullanıcı Adı: ferhat
+   Şifre: [şifreniz]
+
+4️⃣ AKTİVİTE LOGLARINA GİDİN:
+   http://192.168.181.139:8009/OtomatikArama/activity_logs.php
+
+5️⃣ IP ADRESİNİZİ KONTROL EDİN:
+   ✅ Görmelisiniz: [192.168.181.139]
+   ❌ Görmemelisiniz: [::1] veya [127.0.0.1]
+
+
+🔖 BOOKMARK OLUŞTURUN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chrome/Edge:
+1. Yıldız ikonuna tıklayın
+2. URL: http://192.168.181.139:8009/OtomatikArama/
+3. İsim: Otomatik Arama Sistemi
+4. Kaydet
+
+
+🔍 DEBUG / TEST:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+IP Kontrolü:
+http://192.168.181.139:8009/OtomatikArama/debug_ip.php
+
+Göreceksiniz:
+┌────────────────────────────────────────┐
+│ Algılanan IP: 192.168.181.139 ✅       │
+└────────────────────────────────────────┘
+
+
+📊 SAYFA LİNKLERİ:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ana Sayfa:
+http://192.168.181.139:8009/OtomatikArama/
+
+Login:
+http://192.168.181.139:8009/OtomatikArama/login.php
+
+Activity Logs:
+http://192.168.181.139:8009/OtomatikArama/activity_logs.php
+
+Login History:
+http://192.168.181.139:8009/OtomatikArama/login_history.php
+
+Projeler:
+http://192.168.181.139:8009/OtomatikArama/projeler.php
+
+Arama Yönetimi:
+http://192.168.181.139:8009/OtomatikArama/arama_yonetimi.php
+
+Şablonlar:
+http://192.168.181.139:8009/OtomatikArama/sablonlar.php
+
+
+❓ NEDEN BU DEĞİŞİKLİK?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+localhost kullanıldığında:
+❌ IP: ::1 (localhost)
+❌ Aktivite logları anlamsız
+❌ Hangi kullanıcının ne yaptığı takip edilemez
+
+192.168.181.139 kullanıldığında:
+✅ IP: 192.168.181.139 (gerçek IP)
+✅ Aktivite logları anlamlı
+✅ Her kullanıcı ayırt edilebilir
+✅ Güvenlik takibi yapılabilir
+
+
+🚀 HEMEN TEST EDİN!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Şu sayfayı açın:
+   http://192.168.181.139:8009/OtomatikArama/debug_ip.php
+
+2. "Algılanan IP: 192.168.181.139" gördüğünüzden emin olun ✅
+
+3. Login yapın ve Activity Logs'u kontrol edin
+
+4. IP adresinizin doğru kaydedildiğini görün 🎉
+
+
+═══════════════════════════════════════════════════════════════
+Detaylı bilgi için: IP_ERISIM_KILAVUZU.md
+═══════════════════════════════════════════════════════════════

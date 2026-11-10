@@ -1,0 +1,77 @@
+# Güvenlik Ayarları
+
+# .env dosyasına erişimi engelle
+<Files ".env">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# config.php dosyasına erişimi engelle
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# config.secure.php dosyasına erişimi engelle
+<Files "config.secure.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Log dosyalarına erişimi engelle
+<FilesMatch "\.(log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Markdown ve dokümantasyon dosyalarına erişimi engelle
+<FilesMatch "\.(md)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Batch ve shell scriptlerine erişimi engelle
+<FilesMatch "\.(bat|sh|cmd)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# JSON, SQL dosyalarına erişimi engelle
+<FilesMatch "\.(json|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Composer dosyalarına erişimi engelle
+<FilesMatch "^(composer\.(json|lock|phar))$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Git dosyalarına erişimi engelle
+<FilesMatch "^\.git">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Dizin listelemeyi kapat
+Options -Indexes
+
+# PHP hatalarını gizle (production)
+php_flag display_errors Off
+php_value error_reporting 0
+
+# Güvenlik başlıkları
+<IfModule mod_headers.c>
+    # XSS koruması
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Clickjacking koruması
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Content type sniffing'i engelle
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Referrer politikası
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

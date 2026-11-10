@@ -1,0 +1,38 @@
+{
+    "default_language": "tr-TR",
+    "speech_speed": 0.85,
+    "engine_priority": [
+        "ema",
+        "windows",
+        "google",
+        "azure"
+    ],
+    "engines": {
+        "windows": {
+            "enabled": false,
+            "voices": {
+                "tr-TR": "Vocalizer Expressive Yelda Harpo 22kHz",
+                "en-US": "Microsoft Zira Desktop"
+            }
+        },
+        "ema": {
+            "enabled": true,
+            "python_path": "C:/Users/Tuncay Bilgin/AppData/Local/Programs/Python/Python313/python.exe"
+        },
+        "google": {
+            "enabled": false,
+            "voices": {
+                "tr-TR": "tr-TR-Wavenet-A",
+                "en-US": "en-US-Wavenet-F"
+            }
+        },
+        "azure": {
+            "enabled": false,
+            "region": "southeastasia",
+            "voices": {
+                "tr-TR": "tr-TR-EmelNeural",
+                "en-US": "en-US-JennyNeural"
+            }
+        }
+    }
+}

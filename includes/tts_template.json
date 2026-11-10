@@ -1,0 +1,26 @@
+[
+    {
+        "type": "text",
+        "value": "Değerli Velimiz,"
+    },
+    {
+        "type": "field",
+        "value": "Adi"
+    },
+    {
+        "type": "text",
+        "value": "Sizi , Anabilim eğitim kurumlarından, öğrencimizin   kayıt ücretini,  bildirmek üzere, arıyoruz... Erken kayıt dönemi, 2 Şubat ile ,  14 Mart  tarihleri arasındadır...  Bu yılki  ücretiniz,,,"
+    },
+    {
+        "type": "field",
+        "value": "Tutar"
+    },
+    {
+        "type": "text",
+        "value": "Türk Lirasıdır, Yemek ücreti bu ücrete ,daahil    değildir..  Bilgilerinize sunar, İyi günler dileriz. "
+    },
+    {
+        "type": "text",
+        "value": "Tekrar dinlemek için 1, operatöre bağlanmak için 2 tuşuna basınız."
+    }
+]

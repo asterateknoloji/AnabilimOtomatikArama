@@ -1,0 +1,30 @@
+; ============================================
+; Otomatik Arama - macro-hangupcall-custom
+; ============================================
+[macro-hangupcall-custom]
+exten => s,1,NoOp(=== DEBUG: macro-hangupcall CALL_ID: ${CALL_ID} ===)
+exten => s,n,NoOp(DEBUG: HANGUPCAUSE = ${HANGUPCAUSE})
+exten => s,n,NoOp(DEBUG: DIALSTATUS = ${DIALSTATUS})
+exten => s,n,GotoIf($["${CALL_ID}" = ""]?end,1)  ; CALL_ID yoksa çık
+exten => s,n,GotoIf($["${HANGUPCAUSE}" = "19"]?noanswer,1)  ; 19 = No answer
+exten => s,n,GotoIf($["${HANGUPCAUSE}" = "17"]?busy,1)      ; 17 = User busy
+exten => s,n,GotoIf($["${HANGUPCAUSE}" = "34"]?congestion,1) ; 34 = No circuit
+exten => s,n,GotoIf($["${HANGUPCAUSE}" = "21"]?busy,1)      ; 21 = Rejected
+exten => s,n,GotoIf($["${HANGUPCAUSE}" = "16"]?end,1)       ; 16 = Normal clearing
+exten => s,n,NoOp(DEBUG: No match, going to noanswer by default)
+exten => s,n,Goto(noanswer,1)
+
+exten => noanswer,1,NoOp(=== DEBUG: NOANSWER Extension ===)
+exten => noanswer,n,AGI(update_call_status.php,${CALL_ID},noanswer)
+exten => noanswer,n,MacroExit()
+
+exten => busy,1,NoOp(=== DEBUG: BUSY Extension ===)
+exten => busy,n,AGI(update_call_status.php,${CALL_ID},busy)
+exten => busy,n,MacroExit()
+
+exten => congestion,1,NoOp(=== DEBUG: CONGESTION Extension ===)
+exten => congestion,n,AGI(update_call_status.php,${CALL_ID},congestion)
+exten => congestion,n,MacroExit()
+
+exten => end,1,MacroExit()
+; ============================================

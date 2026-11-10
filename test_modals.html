@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <h1>Modal Test</h1>
+    
+    <button onclick="testReport()">Test Rapor</button>
+    <button onclick="testDuplicate()">Test Çoğalt</button>
+    
+    <div id="testOutput" style="margin-top: 20px; padding: 20px; background: #f0f0f0; border-radius: 8px;">
+        <h3>Test Sonuçları:</h3>
+        <pre id="results"></pre>
+    </div>
+
+    <script>
+        function testReport() {
+            const results = document.getElementById('results');
+            results.textContent = '';
+            
+            // Check if function exists
+            if (typeof showReport === 'function') {
+                results.textContent += '✅ showReport fonksiyonu var\n';
+                try {
+                    showReport(1, 'Test.xlsx');
+                    results.textContent += '✅ showReport çalıştı\n';
+                } catch (e) {
+                    results.textContent += '❌ showReport hatası: ' + e.message + '\n';
+                }
+            } else {
+                results.textContent += '❌ showReport fonksiyonu yok\n';
+            }
+            
+            // Check modal element
+            const modal = document.getElementById('reportModal');
+            if (modal) {
+                results.textContent += '✅ reportModal elementi var\n';
+                results.textContent += 'Display: ' + modal.style.display + '\n';
+            } else {
+                results.textContent += '❌ reportModal elementi yok\n';
+            }
+        }
+        
+        function testDuplicate() {
+            const results = document.getElementById('results');
+            results.textContent = '';
+            
+            // Check if function exists
+            if (typeof showDuplicateModal === 'function') {
+                results.textContent += '✅ showDuplicateModal fonksiyonu var\n';
+                try {
+                    showDuplicateModal(1, 'Test.xlsx');
+                    results.textContent += '✅ showDuplicateModal çalıştı\n';
+                } catch (e) {
+                    results.textContent += '❌ showDuplicateModal hatası: ' + e.message + '\n';
+                }
+            } else {
+                results.textContent += '❌ showDuplicateModal fonksiyonu yok\n';
+            }
+            
+            // Check modal element
+            const modal = document.getElementById('duplicateModal');
+            if (modal) {
+                results.textContent += '✅ duplicateModal elementi var\n';
+                results.textContent += 'Display: ' + modal.style.display + '\n';
+            } else {
+                results.textContent += '❌ duplicateModal elementi yok\n';
+            }
+        }
+    </script>
+</body>
+</html>

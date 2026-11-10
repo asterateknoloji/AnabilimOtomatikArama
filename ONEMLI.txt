@@ -1,0 +1,13 @@
+Windows PowerShell’i normal kullanıcı olarak açın:
+
+
+winget install Python.Python.3.13
+Terminali kapatıp yeniden açın, ardından:
+
+
+py -3.13 -m pip install --upgrade pip
+py -3.13 -m pip install ema-lightning --extra-index-url https://download.pytorch.org/whl/cpu
+Kurulumu kontrol edin:
+
+
+py -3.13 -c "from ema_lightning import EMA; print('EMA Lightning hazır')"

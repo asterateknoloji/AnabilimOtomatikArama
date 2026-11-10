@@ -1,0 +1,133 @@
+═══════════════════════════════════════════════════════════════
+    ⚠️  GÜVENLİK UYARISI - ÖNEMLİ BİLGİLER
+═══════════════════════════════════════════════════════════════
+
+🔐 ŞİFRE GÜVENLİĞİ:
+
+Tüm şifreler ve hassas bilgiler artık .env dosyasında saklanıyor.
+
+✅ DOĞRU:
+   .env dosyası:
+   - ✅ .gitignore'da (Git'e eklenmez)
+   - ✅ Gerçek şifreleri içerir
+   - ✅ Her sunucuda farklı olabilir
+
+✅ DOĞRU:
+   .env.example dosyası:
+   - ✅ Git'e eklenir (şablon)
+   - ✅ Sadece placeholder'lar içerir
+   - ✅ Gerçek şifre YOK
+
+❌ YANLIŞ:
+   config.php dosyası:
+   - ❌ Artık şifre içermemeli
+   - ❌ Git'e eklenebilir
+   - ✅ Sadece config.secure.php'yi yükler
+
+═══════════════════════════════════════════════════════════════
+    📋 MEVCUT DURUM
+═══════════════════════════════════════════════════════════════
+
+✅ .env dosyası oluşturuldu (GİZLİ - Git'e EKLENMEDİ)
+   → Gerçek şifreler burada
+
+✅ .env.example güncellendi (ŞABLON - Git'e EKLENEBİLİR)
+   → Placeholder'lar, gerçek şifre YOK
+
+✅ .gitignore doğru yapılandırıldı
+   → .env dosyası Git tarafından yoksayılır
+
+✅ config.php temizlendi
+   → Artık sadece wrapper, şifre YOK
+
+═══════════════════════════════════════════════════════════════
+    🚀 YENİ SUNUCUYA KURULUM
+═══════════════════════════════════════════════════════════════
+
+1. Projeyi Git'ten çek / Klasörü kopyala
+
+2. .env dosyası oluştur:
+   cp .env.example .env
+
+3. .env dosyasını düzenle:
+   nano .env  (veya notepad .env)
+   
+   Gerçek değerleri gir:
+   - DB şifreleri
+   - SSH şifreleri
+   - AMI şifreleri
+   - Encryption key
+
+4. Klasör izinlerini ayarla (Linux):
+   chmod 600 .env          ← Sadece owner okuyabilir
+   chmod 755 uploads/
+   chmod 755 audio_files/
+
+5. Test et:
+   http://sunucu/OtomatikArama/
+
+═══════════════════════════════════════════════════════════════
+    🔒 GÜVENLİK ÖNERİLERİ
+═══════════════════════════════════════════════════════════════
+
+✅ .env dosyasını ASLA Git'e eklemeyin
+✅ .env dosyasını ASLA public klasöre koymayın
+✅ .env dosyasını ASLA paylaşmayın
+✅ Her sunucuda FARKLI şifreler kullanın
+✅ Production'da GÜÇLÜ şifreler kullanın
+✅ Düzenli olarak şifreleri değiştirin
+✅ Encryption key'i mutlaka değiştirin (32 karakter)
+
+❌ Şifreleri kod içine YAZMAYIN
+❌ Şifreleri commit mesajlarına YAZMAYIN
+❌ Şifreleri screenshot'larda GÖSTERMEYIN
+❌ Şifreleri email/chat ile GÖNDERMEYIN
+
+═══════════════════════════════════════════════════════════════
+    🔧 ŞİFRE DEĞİŞTİRME
+═══════════════════════════════════════════════════════════════
+
+Şifreleri değiştirmek için:
+
+1. Sadece .env dosyasını düzenle
+2. Kodu değiştirmeye gerek YOK
+3. Web sunucusunu yeniden başlatmaya gerek YOK
+
+Örnek:
+nano .env
+→ DB_PASS=eski_sifre → DB_PASS=yeni_sifre
+→ Kaydet
+→ Sayfa yenile → Yeni şifre kullanılır ✅
+
+═══════════════════════════════════════════════════════════════
+    📝 ENCRYPTION KEY OLUŞTURMA
+═══════════════════════════════════════════════════════════════
+
+Linux/Mac:
+openssl rand -base64 32
+
+Windows (PowerShell):
+-join ((48..57) + (65..90) + (97..122) | Get-Random -Count 32 | % {[char]$_})
+
+Online (kullan ve kapat):
+https://randomkeygen.com/
+
+═══════════════════════════════════════════════════════════════
+    ✅ KONTROL LİSTESİ
+═══════════════════════════════════════════════════════════════
+
+Deployment öncesi kontrol et:
+
+□ .env dosyası mevcut
+□ .env dosyası .gitignore'da
+□ .env dosyası gerçek şifreleri içeriyor
+□ .env.example sadece placeholder içeriyor
+□ config.php şifre içermiyor
+□ Encryption key değiştirildi
+□ Production şifreleri güçlü
+□ .env dosyası izinleri 600 (Linux)
+
+═══════════════════════════════════════════════════════════════
+Tarih: 2026-01-30
+Versiyon: 1.0
+═══════════════════════════════════════════════════════════════

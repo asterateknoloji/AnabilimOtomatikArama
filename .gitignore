@@ -1,0 +1,173 @@
+# ===============================================
+# ANABILIM OTOMATIK ARAMA - GITIGNORE
+# ===============================================
+
+# ===============================================
+# HASSAS BİLGİLER (ASLA PAYLAŞILMAZ!)
+# ===============================================
+.env
+.env.*
+*.key
+*.pem
+config.local.php
+
+# API Keys
+**/api_keys/
+**/credentials/
+
+# ===============================================
+# VERITABANI
+# ===============================================
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+backups/*.sql
+database/dumps/
+
+# ===============================================
+# LOG DOSYALARI
+# ===============================================
+logs/
+*.log
+tmp/*.log
+/var/log/
+
+# ===============================================
+# GEÇICI DOSYALAR
+# ===============================================
+tmp/
+temp/
+cache/
+*.tmp
+*.cache
+*.bak
+*~
+
+# ===============================================
+# SES DOSYALARI (Çok büyük)
+# ===============================================
+audio/
+sounds/
+tts_cache/
+*.wav
+*.mp3
+*.gsm
+*.ogg
+asterisk/callfiles/*.call
+
+# ===============================================
+# AI MODELLER (Çok büyük)
+# ===============================================
+models/
+*.onnx
+*.pt
+*.pth
+*.bin
+*.gguf
+venv_ai/
+venv_local_ai/
+
+# ===============================================
+# PYTHON
+# ===============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+
+# ===============================================
+# PHP
+# ===============================================
+vendor/
+composer.phar
+composer.lock
+phpunit.xml
+.phpunit.result.cache
+
+# ===============================================
+# NODE / NPM
+# ===============================================
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# ===============================================
+# IDE / EDITOR
+# ===============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===============================================
+# WINDOWS
+# ===============================================
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ===============================================
+# LINUX
+# ===============================================
+*~
+.directory
+.Trash-*
+
+# ===============================================
+# ASTERISK
+# ===============================================
+/var/spool/asterisk/
+/var/lib/asterisk/sounds/custom/*.wav
+/var/lib/asterisk/monitor/
+
+# ===============================================
+# UPLOADS
+# ===============================================
+uploads/*.xlsx
+uploads/*.xls
+uploads/*.csv
+imports/
+
+# ===============================================
+# PRODUCTION CONFIG
+# ===============================================
+.htaccess.production
+config.production.php
+
+# ===============================================
+# ANCAK BU DOSYALAR DAHİL EDİLECEK
+# ===============================================
+!.gitignore
+!.env.example
+!README.md
+!setup_*.bat
+!test_*.py
+!KULLANIM_KILAVUZU*.md
+!AI_ENTEGRASYON_REHBERI.md
+!LOKAL_AI_REHBERI.md
+!ASTERISK_AI_ENTEGRASYON.md

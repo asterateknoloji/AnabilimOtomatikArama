@@ -1,0 +1,27 @@
+; ============================================
+; Otomatik Arama - from-internal h extension
+; ============================================
+[from-internal-custom]
+exten => h,1,GotoIf($["${CALL_ID}" != ""]?agi,1)
+exten => h,n,Hangup()
+
+exten => agi,1,NoOp(=== Otomatik Arama Bitti - CALL_ID: ${CALL_ID} ===)
+exten => agi,n,NoOp(Hangup Cause: ${HANGUPCAUSE})
+exten => agi,n,GotoIf($["${HANGUPCAUSE}" = "19"]?noanswer,1)  ; 19 = No answer
+exten => agi,n,GotoIf($["${HANGUPCAUSE}" = "17"]?busy,1)      ; 17 = User busy
+exten => agi,n,GotoIf($["${HANGUPCAUSE}" = "34"]?congestion,1) ; 34 = No circuit
+exten => agi,n,GotoIf($["${HANGUPCAUSE}" = "21"]?busy,1)      ; 21 = Rejected (busy)
+exten => agi,n,Hangup()
+
+exten => noanswer,1,NoOp(=== Cevapsız ===)
+exten => noanswer,n,AGI(update_call_status.php,${CALL_ID},noanswer)
+exten => noanswer,n,Hangup()
+
+exten => busy,1,NoOp(=== Meşgul ===)
+exten => busy,n,AGI(update_call_status.php,${CALL_ID},busy)
+exten => busy,n,Hangup()
+
+exten => congestion,1,NoOp(=== Tıkanıklık ===)
+exten => congestion,n,AGI(update_call_status.php,${CALL_ID},congestion)
+exten => congestion,n,Hangup()
+; ============================================

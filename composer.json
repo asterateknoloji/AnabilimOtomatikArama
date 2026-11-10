@@ -1,0 +1,15 @@
+{
+    "name": "astera/autocall-system",
+    "description": "Otomatik Arama Sistemi",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpoffice/phpspreadsheet": "*",
+        "phpseclib/phpseclib": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Astera\\": "includes/"
+        }
+    }
+}
